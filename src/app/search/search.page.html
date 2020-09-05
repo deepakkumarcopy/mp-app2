@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>search</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionInput)="search($event)"></ion-searchbar>
+  <ion-item *ngFor="let expense of resultArr">
+    <h2>{{expense.desc}}</h2>
+    <p text-right>${{expense.amount}}</p>
+    <p> {{expense.date}}</p>
+    <p>{{expense.category}}</p>
+    <p>{{expense.remark}}</p>
+   
+  </ion-item>
+</ion-content>

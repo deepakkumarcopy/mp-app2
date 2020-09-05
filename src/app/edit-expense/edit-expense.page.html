@@ -1,0 +1,53 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>edit-expense</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+	<form [formGroup]="addExpenseForm">
+		<ion-list>
+			<ion-item>
+				<ion-label color="primary">Date</ion-label>
+				<ion-datetime type="string" displayFormat="YYYY-MM-DD" pickerFormat="YYYY MM DD" formControlName="date" name="date">
+				</ion-datetime>
+
+			</ion-item>
+			<ion-item>
+				<ion-label color="primary">Amount</ion-label>
+				<ion-input type="number" placeholder="$" formControlName="amount" name="amount"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label color="primary">Category</ion-label>
+				<ion-select type="string" formControlName="category" name="category">
+					<ion-option value="Food">Food</ion-option>
+					<ion-option value="Transport">Transport</ion-option>
+					<ion-option value="Shopping">Shopping</ion-option>
+					<ion-option value="Entertainment">Entertainment</ion-option>
+					<ion-option value="Education">Education</ion-option>
+					<ion-option value="Others">Others</ion-option>
+				</ion-select>
+			</ion-item>
+			<ion-item>
+				<ion-label color="primary">Description</ion-label>
+				<ion-input type="string" formControlName="desc" name="desc"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label color="primary">Remark</ion-label>
+				<ion-input type="string" formControlName="remark" name="remark"></ion-input>
+			</ion-item>
+
+			<div class="error-message" *ngIf="!addExpenseForm.controls.amount.valid && addExpenseForm.controls.amount.touched" style="color:red">
+				Please enter a positive amount.
+			</div>
+			<div class="error-message" *ngIf="!addExpenseForm.controls.desc.valid && addExpenseForm.controls.desc.touched" style="color:red">
+				Please enter a description.
+			</div>
+			<div class="error-message" *ngIf="!addExpenseForm.controls.category.valid && addExpenseForm.controls.category.touched" style="color:red">
+				Please select a category.
+			</div>
+		</ion-list>
+		<ion-button  expand="block" (click)="clickUpdate()">Update</ion-button>
+		<ion-button  expand="block" (click)="clickDelete()">Delete</ion-button>
+	</form>
+</ion-content>

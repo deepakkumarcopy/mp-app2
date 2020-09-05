@@ -1,0 +1,52 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Report</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-list *ngFor="let expense of expenses ">
+		<ion-item group style="border-bottom: 0.5px solid;" (click)="viewExpense(expense.date, expense.amount, expense.category, expense.desc, expense.remark,expense)">
+			<div slot="start" class="item">
+				<h2>{{expense.desc}}</h2>
+				<p> {{expense.date}}</p>
+				<p>{{expense.category}}</p>
+				<p>{{expense.remark}}</p>
+				<p>{{expense.amount}}+{{expense.amount}}</p>
+			</div>
+			<label></label>
+			<h1 slot="end" text-right><span style="color:red">${{expense.amount}}</span></h1>
+		</ion-item>
+	</ion-list>
+	<ion-toolbar>
+		<ion-segment [(ngModel)]="page" color="dark">
+			<ion-segment-button value="Weekly" (click)="selectedTab(0)">
+				<h2>Weekly</h2>
+			</ion-segment-button>
+			<ion-segment-button value="Monthly" (click)="selectedTab(1)">
+				<h2>Monthly</h2>
+			</ion-segment-button>
+		</ion-segment>
+	</ion-toolbar>
+
+
+	<ion-slides #slider>
+		<ion-slide>
+			<h1>Weekly</h1>
+		</ion-slide>
+		<ion-slide>
+			<ion-card>
+				<ion-card-header>
+					<ion-card-title>Monthly Transaction</ion-card-title>
+				</ion-card-header>
+				<ion-card-content>
+					<canvas #barChart></canvas>
+				</ion-card-content>
+			</ion-card>
+		</ion-slide>
+	</ion-slides>
+	<div class="ion-padding">
+		<h1><span style="font-size:large;"> $ </span>{{totalamount}}</h1>
+		<p>Total Expense</p>
+	</div>
+</ion-content>

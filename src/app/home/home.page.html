@@ -1,0 +1,53 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Home</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<p><ion-button expand="full" fill="clear" (click)="addBudget()"> add budget</ion-button></p>
+
+	<ion-list *ngFor="let goal of goals">
+
+		<ion-card class="cardIon" [ngClass]="(totalExps[goal.goals_id] == undefined || ((totalExps[goal.goals_id] - goal.amount) < 0)) ? 'withinBudget' : 'alertColor' ">
+			<br>
+			<div class="goal">{{goal.name}}</div>
+			<div group [ngClass]="(totalExps[goal.goals_id] == undefined || ((totalExps[goal.goals_id] - goal.amount) < 0)) ? 'withinBudget' : 'alertColor' " text-center (click)="viewGoal(goal.name, goal.amount , goal.startDate, goal.endDate, goal.optional, goal, goal.goals_id)">
+
+				<h1>
+					<span style="font-size:large;"> $ </span>
+					{{(totalExps[goal.goals_id] == undefined) ? 0 : (totalExps[goal.goals_id])}} of $ {{goal.amount}}
+				</h1>
+
+				<p text-center>
+					$ {{(totalExps[goal.goals_id] == undefined) ? goal.amount : (goal.amount - totalExps[goal.goals_id])}} till budget is reached!
+				</p>
+			</div>
+		</ion-card>
+	</ion-list>
+	<!-- <p>  <p>
+	<progress-bar [progress]="loadProgress"></progress-bar>
+	</p>
+
+		<button ion-button [navPush] ="next" full clear>Click to add goal</button>
+	</p>-->
+	<div class="ion-padding">
+		<h1><span style="font-size:large;"> $ </span>{{totalamount}}</h1>
+		<p>Total Expense</p>
+		<h3>Expenses History</h3>
+	</div>
+
+	<!--- <button ion-button [navPush]="search"> Search </button>-->
+	<ion-list *ngFor="let expense of expenses ">
+		<ion-item group style="border-bottom: 0.5px solid;" (click)="viewExpense(expense.date, expense.amount, expense.category, expense.desc, expense.remark,expense)">
+			<div slot="start" class="item">
+				<h4>{{expense.desc}}</h4>
+				<p> {{expense.date}}</p>
+				<p>{{expense.category}}</p>
+				<p>{{expense.remark}}</p>
+			</div>
+			<label></label>
+			<h1 slot="end" text-right><span style="color:red">${{expense.amount}}</span></h1>
+		</ion-item>
+	</ion-list>
+</ion-content>

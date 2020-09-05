@@ -1,0 +1,14 @@
+[
+    {"transId":1 ,"month":"January","transAmount":"300","colorH":"rgba(51,204,51,1)","color":"rgba(51,204,51,0.2)"},
+    {"transId":2 ,"month":"February","transAmount":"350","colorH":"rgba(51,102,204,1)","color":"rgba(51,102,204,0.2)"},
+    {"transId":3 ,"month":"March","transAmount":"270","colorH":"rgba(0,255,153,1)","color":"rgba(0,255,153,0.2)"},
+    {"transId":4 ,"month":"April","transAmount":"400","colorH":"rgba(204,51,51,1)","color":"rgba(204,51,51,0.2)"},
+    {"transId":5 ,"month":"May","transAmount":"370","colorH":"rgba(153,51,153,1)","color":"rgba(153,51,153,0.2)"},
+    {"transId":6 ,"month":"June","transAmount":"300","colorH":"rgba(255,204,51,1)","color":"rgba(255,204,51,0.2)"},
+    {"transId":7 ,"month":"July","transAmount":"340","colorH":"rgba(153,204,102,1)","color":"rgba(153,204,102,0.2)"},
+    {"transId":8 ,"month":"August","transAmount":"300","colorH":"rgba(255,99,132,1)","color":"rgba(255,99,132,0.2)"},
+    {"transId":9 ,"month":"September","transAmount":"350","colorH":"rgba(54,162,235,1)","color":"rgba(54,162,235,0.2)"},
+    {"transId":10 ,"month":"October","transAmount":"300","colorH":"rgba(255,206,86,1)","color":"rgba(255,206,86,0.2)"},
+    {"transId":11 ,"month":"November","transAmount":"270","colorH":"rgba(75,192,192,1)","color":"rgba(75,192,192,0.2)"},
+    {"transId":12 ,"month":"December","transAmount":"400","colorH":"rgba(153,102,255,1)","color":"rgba(153,102,255,0.2)"}
+]

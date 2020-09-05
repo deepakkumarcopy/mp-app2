@@ -1,0 +1,58 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Add Transaction</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+	<form [formGroup]="addExpenseForm" (submit)="clickAdd()">
+		<ion-list>
+			<ion-item>
+				<ion-label color="primary">Date</ion-label>
+				<ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMM YYYY" formControlName="date" name="date" type="string"></ion-datetime>
+			</ion-item>
+			<ion-item>
+				<ion-label color="primary">Amount</ion-label>
+				<ion-input type="number" placeholder="$" formControlName="amount" name="amount"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label color="primary">Category</ion-label>
+				<ion-select type="string" formControlName="category" name="category">
+					<ion-select-option value="Food">Food</ion-select-option>
+					<ion-select-option value="Transport">Transport</ion-select-option>
+					<ion-select-option value="Shopping">Shopping</ion-select-option>
+					<ion-select-option value="Entertainment">Entertainment</ion-select-option>
+					<ion-select-option value="Education">Education</ion-select-option>
+					<ion-select-option value="Others">Others</ion-select-option>
+				</ion-select>
+			</ion-item>
+			<ion-item>
+				<ion-label color="primary">Description</ion-label>
+				<ion-input type="string" formControlName="desc" name="desc"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label color="primary">Remark</ion-label>
+				<ion-input type="string" formControlName="remark" name="remark"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label color="primary">Goals</ion-label>
+				<ion-select type="string" formControlName="goal" name="goal">
+					<ion-select-option *ngFor="let goal of goals" [value]="goal.goals_id">{{goal.name}}
+					</ion-select-option>
+				</ion-select>
+			</ion-item>
+
+			<div class="error-message" *ngIf="!addExpenseForm.controls.amount.valid && addExpenseForm.controls.amount.touched" style="color:red">
+				Please enter a positive amount.
+			</div>
+			<div class="error-message" *ngIf="!addExpenseForm.controls.desc.valid && addExpenseForm.controls.desc.touched" style="color:red">
+				Please enter a description.
+			</div>
+			<div class="error-message" *ngIf="!addExpenseForm.controls.category.valid && addExpenseForm.controls.category.touched" style="color:red">
+				Please select a category.
+			</div>
+		</ion-list>
+		<ion-button expand="block" [disabled]="!addExpenseForm.valid">Add</ion-button>
+	</form>
+</ion-content>
