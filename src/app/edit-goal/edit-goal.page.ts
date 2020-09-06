@@ -26,11 +26,11 @@ export class EditGoalPage implements OnInit {
 			this.myGoal = this.route.getCurrentNavigation().extras.state.item;
 		}
 		this.myGoals = fb.group({
-			'name': this.myGoal.get("name"),
-			'amount': this.myGoal.get("amount"),
-			'startDate': this.myGoal.get("startDate"),
-			'endDate': this.myGoal.get("endDate"),
-			'optional': this.myGoal.get("optional")
+			'name': this.myGoal.name,
+			'amount': this.myGoal.amount,
+			'startDate': this.myGoal.startDate,
+			'endDate': this.myGoal.endDate,
+			'optional': this.myGoal.optional
 		});
 	}
 
@@ -39,8 +39,7 @@ export class EditGoalPage implements OnInit {
 
 	clickUpdate() {
 		if (this.myGoals.value.name != "") {
-			this.goalProvider.addUpdateGoal(this.myGoals.value.name, this.myGoals.value.amount,
-				this.myGoals.value.startDate, this.myGoals.value.endDate, this.myGoals.value.optional, this.myGoal.expense.goals_id);
+			this.goalProvider.addUpdateGoal(this.myGoals.value.name, this.myGoals.value.amount, this.myGoals.value.startDate, this.myGoals.value.endDate, this.myGoals.value.optional, this.myGoal.expense.goals_id);
 			this.navCtrl.pop();
 		}
 		else {

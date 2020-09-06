@@ -1,56 +1,52 @@
 <ion-header>
 	<ion-toolbar>
-		<ion-title>edit-goal</ion-title>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>Edit Goal</ion-title>
 	</ion-toolbar>
 </ion-header>
 
-<ion-content>
-	<ion-content padding>
-		<form [formGroup]="myGoals" >
-			<ion-list>
-				<ion-item>
-					<ion-label color="primary" position="fixed">Budget Name:</ion-label>
-					<ion-input  formControlName="name"  name="name" type= "string" > </ion-input>
-				</ion-item>
-	
-				<ion-item>
-					<ion-label color="primary" position="fixed">Budget Amount:</ion-label>
-					<ion-input  formControlName="amount" name ="amount" placeholder="$" type= "string" > </ion-input>
-				</ion-item>
-				<br>
-	
-				<ion-item>
-					<ion-label color="primary">Start Date</ion-label>
-					<ion-datetime  formControlName="startDate" name="startDate" type="string" 
-					displayFormat="DD MMM YYYY" placeholder="Select Date" 
-				 ></ion-datetime>
-				</ion-item>
-	
-				<ion-item>
-					<ion-label color="primary">End Date</ion-label>
-					<ion-datetime   formControlName="endDate" name = "endDate" type="string"
-					displayFormat="DD MMM YYYY" min="1980" max="2050" placeholder="Select Date" 
-					></ion-datetime>
-				</ion-item>
-	
-				<ion-item>
-					<ion-label color="primary">Optional</ion-label>
-					<ion-select  formControlName="optional" name ="optional" multiple="false" type="string" >
+<ion-content class="ion-padding">
+	<form [formGroup]="myGoals">
+		<ion-list>
+			<ion-item>
+				<ion-label color="primary" position="fixed">Budget Name:</ion-label>
+				<ion-input formControlName="name" name="name" type="string"> </ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label color="primary" position="fixed">Budget Amount:</ion-label>
+				<ion-input formControlName="amount" name="amount" placeholder="$" type="string"> </ion-input>
+			</ion-item>
+			<br>
+
+			<ion-item>
+				<ion-label color="primary">Start Date</ion-label>
+				<ion-datetime formControlName="startDate" name="startDate" type="string" displayFormat="DD MMM YYYY" placeholder="Select Date"></ion-datetime>
+			</ion-item>
+
+			<ion-item>
+				<ion-label color="primary">End Date</ion-label>
+				<ion-datetime formControlName="endDate" name="endDate" type="string" displayFormat="DD MMM YYYY" min="1980" max="2050" placeholder="Select Date"></ion-datetime>
+			</ion-item>
+
+			<ion-item>
+				<ion-label color="primary">Optional</ion-label>
+				<ion-select formControlName="optional" name="optional" multiple="false" type="string">
 					<ion-select-option>Weekly Goal</ion-select-option>
 					<ion-select-option>Monthly Goal</ion-select-option>
 					<ion-select-option>Yearly Goal</ion-select-option>
 					<ion-select-option>Long Term Goal</ion-select-option>
 				</ion-select>
-	
-				</ion-item>
-			 <div class="error-message" 
-				*ngIf="!myGoals.controls.amount.valid  && 
-				myGoals.controls.amount.touched" style="color:red">
-					Please enter a positive amount.
-				</div>
-	
-			 </ion-list>
-			<ion-button expand="block" (click)="clickUpdate()">Update Goals</ion-button>
-			<ion-button expand="block" (click)="clickDelete()">Delete Goals</ion-button>
-		</form>
+
+			</ion-item>
+			<div class="error-message" *ngIf="!myGoals.controls.amount.valid && myGoals.controls.amount.touched" style="color:red">
+				Please enter a positive amount.
+			</div>
+
+		</ion-list>
+		<ion-button expand="block" (click)="clickUpdate()">Update Goals</ion-button>
+		<ion-button expand="block" (click)="clickDelete()">Delete Goals</ion-button>
+	</form>
 </ion-content>
